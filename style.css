@@ -4,6 +4,7 @@ body {
     padding: 0;
     font-family: Arial, Helvetica, sans-serif;
     color: black;
+    background-color: #FFF;
 }
 
 canvas {
@@ -12,24 +13,30 @@ canvas {
 
 #person {
     position: absolute;
+    top: 460px;
+    left: 0;
     color: black;
     z-index: 10;
 }
 
-td[data-value="0"] {
-    background-color: white;
+td[value="0"] {
+    background-color: #FFF;
+    width: 40.011px;
+    height: 40px;
 }
 
-td[data-value="1"] {
-    background-color: black;
+td[value="1"] {
+    background-color: #000;
 }
 
 .fixed-column {
-    width: 3.261vw;
+    width: 40.011px;
+    height: 40px;
 }
 
 #my-table {
-    width: 75vw;
-    height: 75vh;
+    position: relative;
+    width: 920.25px;
+    height: 600px;
     margin: auto;
 }
