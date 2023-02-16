@@ -10,7 +10,7 @@ canvas {
     border: 1px solid black;
   }
 
-#myCharacter {
+#person {
     position: absolute;
     color: black;
     z-index: 10;
@@ -22,6 +22,10 @@ td[data-value="0"] {
 
 td[data-value="1"] {
     background-color: black;
+}
+
+.fixed-column {
+    width: 3.261vw;
 }
 
 #my-table {
