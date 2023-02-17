@@ -1,24 +1,61 @@
-// Define the maze as a 2D array
-const array = [
-  0[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  1[0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0],
-  2[0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0],
-  3[0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1, 1, 0, 1, 0, 1, 1, 1, 1, 1, 0],
-  4[0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 'F'],
-  5[0, 1, 0, 1, 1, 1, 1, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, 1, 0],
-  6[0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0],
-  7[0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0],
-  8[0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0 ,0, 1, 0, 1, 0],
-  9[0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0],
- 10['S', 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0],
- 11[0, 1, 0, 1, 0, 1, 1, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1, 1, 1, 1, 0, 1, 0],
- 12[0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0],
- 13[0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0],
- 14[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+const myArray = [
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0],
+  [0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0],
+  [0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1, 1, 0, 1, 0, 1, 1, 1, 1, 1, 0],
+  [0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 'F'],
+  [0, 1, 0, 1, 1, 1, 1, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, 1, 0],
+  [0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0],
+  [0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0],
+  [0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0 ,0, 1, 0, 1, 0],
+  [0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0],
+  ['S', 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0],
+  [0, 1, 0, 1, 0, 1, 1, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1, 1, 1, 1, 0, 1, 0],
+  [0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0],
+  [0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 //  1  2  3  4  5  6  7  8  9  10 11 12 13 14 15 16 17 18 19 20 21 22 23
 ];
 
+    
+const table = document.getElementById("myTable");
+    
+for (let i = 0; i < myArray.length; i++) {
+  const row = document.createElement("tr");
+  for (let j = 0; j < myArray[i].length; j++) {
+    const cell = document.createElement("td");
+    cell.setAttribute("data-value", myArray[i][j]);
+    //cell.textContent = myArray[i][j];
+    row.appendChild(cell);
+  }
+  table.appendChild(row);
+}
+
 /*
+
+let table = document.getElementById("myTable");
+let tbody = table.getElementsByTagName("tbody")[0];
+
+//addEventListener("load", (event) => {
+for (let i = 0; i < myArray.length; i++) {
+  for (let j = 0; j <myArray[i].length; j++) {
+    let cell = document.createElement("td");
+    let cellText = document.createTextNode(myArray[i][j]);
+    let parent = document.querySelector("tbody");
+    
+    //    if (cell) {
+    parent.appendChild(cell);
+    cell.appendChild(cellText);
+//    } if (row) {
+    row.appendChild(cell);
+//    }
+  }
+  tbody.appendChild(row);
+};
+//});
+
+/*
+
 const table = document.getElementById("my-table");
 
 window.onload = function() {
@@ -33,8 +70,8 @@ for (let i = 0; i < array.length; i++) {
   table.appendChild(row);
 }
 }
-*/
-/*
+
+
 var person = null;
 var row = null;
 
@@ -186,7 +223,7 @@ printMaze(maze);
 
 
 
-/*
+
 
 
 
@@ -284,7 +321,7 @@ function getUnvisitedNeighbors(row, col, maze) {
 
 
 
-/*
+
 function createMaze(canvas, cellSize) {
   const ctx = canvas.getContext('2d');
   const width = document.getElementById("canvas").width;
@@ -357,14 +394,14 @@ function removeWall(row1, col1, row2, col2, maze) {
   const wallCol = col1 + Math.floor((col2 - col1) / 2);
   maze[wallRow][wallCol] = 0;
 }
-*/
 
 
 
 
 
 
-/*
+
+
 const map = `WWWWWWWWWWWWWWWWWWWWW
              W   W     W     W W W
              W W W WWW WWWWW W W W

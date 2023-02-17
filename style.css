@@ -7,10 +7,12 @@ body {
     background-color: #FFF;
 }
 
-canvas {
-    border: 1px solid black;
-  }
-
+#myTable {
+    position: relative;
+    margin: auto;
+    padding: auto;
+}
+/*
 #person {
     position: absolute;
     top: 460px;
@@ -18,17 +20,17 @@ canvas {
     color: black;
     z-index: 10;
 }
-
-td[value="0"] {
+*/
+td[data-value="0"] {
     background-color: #FFF;
     width: 40.011px;
     height: 40px;
 }
 
-td[value="1"] {
+td[data-value="1"] {
     background-color: #000;
 }
-
+/*
 .fixed-column {
     width: 40.011px;
     height: 40px;
@@ -40,3 +42,4 @@ td[value="1"] {
     height: 600px;
     margin: auto;
 }
+*/
