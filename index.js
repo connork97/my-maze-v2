@@ -31,6 +31,13 @@ for (let i = 0; i < myArray.length; i++) {
   table.appendChild(row);
 }
 
+// User Character Movement
+
+/*
+const myPerson = document.getElementById("person");
+const computedStyle = getComputedStyle(myPerson);
+const backgroundColor = computedStyle.backgroundColor;
+*/
 function init() {
   person = document.getElementById("person");
   person.style.position = "absolute";
