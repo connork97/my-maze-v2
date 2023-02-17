@@ -3,8 +3,12 @@ body {
     margin: 0;
     padding: 0;
     font-family: Arial, Helvetica, sans-serif;
-    color: black;
-    background-color: #FFF;
+    color: #fff;
+    background-color: #000;
+}
+
+#mazeTitle {
+    text-align: center;
 }
 
 #myTable {
@@ -12,34 +16,30 @@ body {
     margin: auto;
     padding: auto;
 }
-/*
+
 #person {
     position: absolute;
-    top: 460px;
-    left: 0;
-    color: black;
+    top: 50px;
+    left: 50px;
     z-index: 10;
 }
-*/
-td[data-value="0"] {
-    background-color: #FFF;
-    width: 40.011px;
+
+
+table {
+    position: absolute;
+    border-collapse: collapse;
+    z-index: 9;
+}
+
+td {
+    width: 40px;
     height: 40px;
+}
+
+td[data-value="0"] {
+    background-color: #000;
 }
 
 td[data-value="1"] {
-    background-color: #000;
+    background-color: #fff;
 }
-/*
-.fixed-column {
-    width: 40.011px;
-    height: 40px;
-}
-
-#my-table {
-    position: relative;
-    width: 920.25px;
-    height: 600px;
-    margin: auto;
-}
-*/
