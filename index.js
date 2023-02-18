@@ -79,9 +79,8 @@ function moveSC(e) {
       break;
   }
   console.clear();
-  console.table(mazeArray);
+  mazeArray.innerHTML = console.table(mazeArray);
 }
-
 document.addEventListener("keydown", moveSC);
 
 //console.log(userPosition);
