@@ -50,37 +50,66 @@ let currentCol = 1;
 function moveSC(e) {
   switch (e.key) {
     case "ArrowUp":
-      if (mazeArray[currentRow - 1][currentCol] !== 1) {
+      if (mazeArray[currentRow - 1][currentCol] == 0) {
         mazeArray[currentRow][currentCol] = 0;
         currentRow--;
         mazeArray[currentRow][currentCol] = 'SC';
+
+        moveDomIcon(currentRow, currentCol);
+      } if (mazeArray[currentRow][currentCol] == 'F') {
+        window.alert("You've finished the maze!");
       }
       break;
     case "ArrowDown":
-      if (mazeArray[currentRow + 1][currentCol] !== 1) {
+      if (mazeArray[currentRow + 1][currentCol] == 0) {
         mazeArray[currentRow][currentCol] = 0;
         currentRow++;
         mazeArray[currentRow][currentCol] = 'SC';
+
+        moveDomIcon(currentRow, currentCol);
+      } if (mazeArray[currentRow][currentCol] == 'F') {
+        window.alert("You've finished the maze!");
       }
       break;
     case "ArrowLeft":
-      if (mazeArray[currentRow][currentCol - 1] !== 1) {
+      if (mazeArray[currentRow][currentCol - 1] == 0) {
         mazeArray[currentRow][currentCol] = 0;
         currentCol--;
         mazeArray[currentRow][currentCol] = 'SC';
+
+        moveDomIcon(currentRow, currentCol);
+      } if (mazeArray[currentRow][currentCol] == 'F') {
+        window.alert("You've finished the maze!");
       }
       break;
     case "ArrowRight":
-      if (mazeArray[currentRow][currentCol + 1] !== 1) {
+      if (mazeArray[currentRow][currentCol + 1] == 0) {
         mazeArray[currentRow][currentCol] = 0;
         currentCol++;
         mazeArray[currentRow][currentCol] = 'SC';
-      }
+
+        moveDomIcon(currentRow, currentCol);
+      } if (mazeArray[currentRow][currentCol] == 'F') {
+        window.alert("You've finished the maze!");
+      }   
       break;
   }
   console.clear();
   mazeArray.innerHTML = console.table(mazeArray);
 }
+
+function moveDomIcon(arrIndex, arrSubIndex) {
+  // Current location of our runner
+  document.querySelector('td[data-value=SC]').setAttribute('data-value', 0);
+  $runner = document.getElementById('person');
+  $runner.remove();
+
+  // New location of our runner
+  $domRow = document.querySelectorAll('tr')[arrIndex].children[arrSubIndex];
+  $domRow.setAttribute('data-value', 'SC');
+  $domRow.innerHTML = $runner.outerHTML;
+}
+
 document.addEventListener("keydown", moveSC);
 
 //console.log(userPosition);
