@@ -110,6 +110,18 @@ function moveDomIcon(arrIndex, arrSubIndex) {
   $domRow.innerHTML = $runner.outerHTML;
 }
 
+function moveDomIcon(arrIndex, arrSubIndex) {
+  // Current location of our runner
+  document.querySelector('td[data-value=SC]').setAttribute('data-value', 0);
+  $runner = document.getElementById('person');
+  $runner.remove();
+
+  // New location of our runner
+  $domRow = document.querySelectorAll('tr')[arrIndex].children[arrSubIndex];
+  $domRow.setAttribute('data-value', 'SC');
+  $domRow.innerHTML = $runner.outerHTML;
+}
+
 document.addEventListener("keydown", moveSC);
 
 //console.log(userPosition);
