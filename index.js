@@ -9,12 +9,11 @@ const mazeArray = [
   [0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0],
   [0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0 ,0, 1, 0, 1, 0],
   [0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0],
-['S', 'SC', 0, 1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0],
+  ['S', 'SC', 0, 1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0],
   [0, 1, 0, 1, 0, 1, 1, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1, 1, 1, 1, 0, 1, 0],
   [0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0],
   [0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0],
   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-//  1  2  3  4  5  6  7  8  9  10 11 12 13 14 15 16 17 18 19 20 21 22 23
 ];
 
 const table = document.getElementById("myTable");
@@ -25,20 +24,19 @@ for (let i = 0; i < mazeArray.length; i++) {
   for (let j = 0; j < mazeArray[i].length; j++) {
     const cell = document.createElement("td");
     cell.setAttribute("data-value", mazeArray[i][j]);
-    //cell.textContent = myArray[i][j];
     row.appendChild(cell);
     if (mazeArray[i][j] == 'S') {
-      cell.style.paddingRight = "25px";
-      cell.style.scale = 1.5;
+      cell.style.paddingRight = "35px";
+      cell.style.scale = 2;
       cell.innerHTML = "Start";
     }
     if (mazeArray[i][j] == 'F') {
-      cell.style.paddingLeft = "25px";
-      cell.style.scale = 1.5;
+      cell.style.paddingLeft = "35px";
+      cell.style.scale = 2;
       cell.innerHTML = "Finish";
     }
     if (mazeArray[i][j] == 'SC') {
-      cell.innerHTML = '<i id="person" class="fa-solid fa-person-running fa-xl"></i>';
+      cell.innerHTML = '<i id="person" class="fa-solid fa-person-running fa-2xl"></i>';
     }
   }
   table.appendChild(row);
@@ -56,8 +54,10 @@ function moveSC(e) {
         mazeArray[currentRow][currentCol] = 'SC';
 
         moveDomIcon(currentRow, currentCol);
-      } if (mazeArray[currentRow][currentCol] == 'F') {
+      } if (mazeArray[currentRow][currentCol + 1] == 'F') {
         window.alert("You've finished the maze!");
+      } if (mazeArray[currentRow][currentCol + 1] == 'S') {
+        window.alert("Wrong way there bud.");
       }
       break;
     case "ArrowDown":
@@ -67,8 +67,10 @@ function moveSC(e) {
         mazeArray[currentRow][currentCol] = 'SC';
 
         moveDomIcon(currentRow, currentCol);
-      } if (mazeArray[currentRow][currentCol] == 'F') {
+      } if (mazeArray[currentRow][currentCol - 1] == 'F') {
         window.alert("You've finished the maze!");
+      } if (mazeArray[currentRow][currentCol - 1] == 'S') {
+        window.alert("Wrong way there bud.");
       }
       break;
     case "ArrowLeft":
@@ -78,8 +80,10 @@ function moveSC(e) {
         mazeArray[currentRow][currentCol] = 'SC';
 
         moveDomIcon(currentRow, currentCol);
-      } if (mazeArray[currentRow][currentCol] == 'F') {
+      } if (mazeArray[currentRow][currentCol - 1] == 'F') {
         window.alert("You've finished the maze!");
+      } if (mazeArray[currentRow][currentCol - 1] == 'S') {
+        window.alert("Wrong way there bud.");
       }
       break;
     case "ArrowRight":
@@ -89,9 +93,11 @@ function moveSC(e) {
         mazeArray[currentRow][currentCol] = 'SC';
 
         moveDomIcon(currentRow, currentCol);
-      } if (mazeArray[currentRow][currentCol] == 'F') {
+      } if (mazeArray[currentRow][currentCol + 1] == 'F') {
         window.alert("You've finished the maze!");
-      }   
+      } if (mazeArray[currentRow][currentCol + 1] == 'S') {
+        window.alert("Wrong way there bud.");
+      }
       break;
   }
   console.clear();
@@ -123,6 +129,7 @@ function moveDomIcon(arrIndex, arrSubIndex) {
 }
 
 document.addEventListener("keydown", moveSC);
+
 
 //console.log(userPosition);
 
