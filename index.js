@@ -54,6 +54,8 @@ function moveSC(e) {
         mazeArray[currentRow][currentCol] = 0;
         currentRow--;
         mazeArray[currentRow][currentCol] = 'SC';
+
+        moveDomIcon(currentRow, currentCol);
       }
       break;
     case "ArrowDown":
@@ -61,6 +63,8 @@ function moveSC(e) {
         mazeArray[currentRow][currentCol] = 0;
         currentRow++;
         mazeArray[currentRow][currentCol] = 'SC';
+
+        moveDomIcon(currentRow, currentCol);
       }
       break;
     case "ArrowLeft":
@@ -68,6 +72,8 @@ function moveSC(e) {
         mazeArray[currentRow][currentCol] = 0;
         currentCol--;
         mazeArray[currentRow][currentCol] = 'SC';
+
+        moveDomIcon(currentRow, currentCol);
       }
       break;
     case "ArrowRight":
@@ -75,11 +81,25 @@ function moveSC(e) {
         mazeArray[currentRow][currentCol] = 0;
         currentCol++;
         mazeArray[currentRow][currentCol] = 'SC';
+
+        moveDomIcon(currentRow, currentCol);
       }
       break;
   }
   console.clear();
   console.table(mazeArray);
+}
+
+function moveDomIcon(arrIndex, arrSubIndex) {
+  // Current location of our runner
+  document.querySelector('td[data-value=SC]').setAttribute('data-value', 0);
+  $runner = document.getElementById('person');
+  $runner.remove();
+
+  // New location of our runner
+  $domRow = document.querySelectorAll('tr')[arrIndex].children[arrSubIndex];
+  $domRow.setAttribute('data-value', 'SC');
+  $domRow.innerHTML = $runner.outerHTML;
 }
 
 document.addEventListener("keydown", moveSC);
