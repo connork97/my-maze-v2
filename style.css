@@ -5,28 +5,74 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     color: #fff;
     background-color: #000;
+    text-align: center;
 }
 
 #mazeTitle {
     text-align: center;
+    font-size: 4rem;
 }
 
-#myTable {
-    position: relative;
+
+#controlsText {
+    font-size: 2.75rem;
+}
+
+#rulesDiv {
+    display: grid;
+    justify-content: center;
+    align-items: center;
     margin: auto;
-    padding: auto;
+    padding-top: 2.5vh;
+    grid-template-rows: 7vh 7vh;
+    row-gap: 1vh;
+    grid-template-columns: 2vw 2vw 2vw;
+    column-gap: 6vh;
+    grid-template-areas:
+        ". up ."
+        "left down right";
+}
+
+.arrow {
+    scale: 3.5;
+    animation: arrowHover 10s ease infinite;
+}
+
+#upArrow {
+    animation-delay: 1s;
+}
+
+#downArrow {
+    animation-delay: 3s;
+}
+
+#leftArrow {
+    animation-delay: 2s;
+}
+
+#rightArrow {
+    animation-delay: 4s;
+}
+
+@keyframes arrowHover {
+    0% {scale: 3.5; opacity: 1;}
+    10% {scale: 2.75; opacity: 0.9;}
+    20% {scale: 3.5; opacity: 1;}
+    100% {scale: 3.5; opacity: 1;}
 }
 
 table {
-    position: absolute;
+    position: relative;
+    margin: auto;
     border-collapse: collapse;
     width: auto;
     height: auto;
+    margin-top: 4vh;
 }
 
 td {
-    width: 1vw;
-    height: 1vw;
+    width: 0.7vw;
+    height: 0.7vw;
 }
 
 td[data-value="1"] {
@@ -37,7 +83,6 @@ td[data-value="0"] {
     background-color: #000;
     scale: 1.5;
     padding: 0.8vw;
-    z-index: 10;
 }
 td[data-value="SC"] {
     position: absolute;
@@ -47,5 +92,5 @@ td[data-value="SC"] {
     background-color: #000;
     scale: 1.5;
     padding: 0.8vw;
-    z-index: 11;
+    z-index: 10;
 }

@@ -460,6 +460,208 @@ Unused/Old CSS:
 
 Unused/Old JavaScript:
 
+
+//console.log(userPosition);
+
+// Testing Out Splice Method to Move User Character //
+/*
+console.log(mazeArray[10][1]);
+console.log(mazeArray[10][2]);
+
+function swap() {
+  let index1 = mazeArray[10][1];
+  let index2 = mazeArray[10][2];
+  
+  //index1.innerHTML = index2;
+  //index2.innerHTML = index1;
+  mazeArray.splice(index1, 1, mazeArray[index2]);
+  mazeArray.splice(index2, 1, mazeArray[index1 - 1]);
+
+  console.log(mazeArray);
+};
+
+//window.onload = swap;
+
+/*
+function moveUserCharacter () {
+let y = 10;
+let x = 1;
+let newPosition;
+userPosition = mazeArray[y][x];
+
+console.log(mazeArray[y].splice(1, 1));
+
+
+document.addEventListener("keydown", (event) =>  {
+  const key = event.key;
+  let newX;
+
+  switch (key) {
+    case "ArrowRight":
+      //newX = x++;
+      newPosition = mazeArray.splice(1, 1, x++);
+      //return newPosition;
+      userPosition[y][x] = newPosition[y][x];
+    }
+}
+)
+};
+
+window.onload = moveUserCharacter;
+*/
+
+
+
+//----------------------------------
+
+
+
+// Function to Move Character within Maze
+/*
+function init() {
+  person = document.getElementById("person");
+  person.style.position = "absolute";
+  person.style.left = "0";
+  person.style.top = "0";
+}
+
+function movePersonRight() {
+  const rightNumbers = person.style.left.replace("px", "");
+  const left = parseInt(rightNumbers, 10);
+
+  if (left >= 0) {
+      person.style.left = `${left + 10}px`;
+  }
+}
+
+function movePersonLeft() {
+  const leftNumbers = person.style.left.replace("px", "");
+  const left = parseInt(leftNumbers, 10);
+
+  if (left >=0) {
+      person.style.left = `${left - 10}px`;
+  }
+}
+
+function movePersonUp() {
+  const topNumbers = person.style.top.replace("px", "");
+  const top = parseInt(topNumbers, 10);
+
+  if (top >= 0) {
+      person.style.top = `${top - 10}px`;
+  }
+}
+
+function movePersonDown() {
+const bottomNumbers = person.style.top.replace("px", "");
+const top = parseInt(bottomNumbers, 10);
+
+if (top >= 0) {
+    person.style.top = `${top + 10}px`;
+}
+}
+
+
+document.addEventListener("keydown", function (e) {
+if (e.key === "ArrowLeft") {
+    movePersonLeft();
+}
+if (e.key === "ArrowRight") {
+    movePersonRight();
+}
+if (e.key === "ArrowUp") {
+    movePersonUp();
+}
+if (e.key === "ArrowDown") {
+    movePersonDown();
+}
+});
+
+window.onload = init;
+
+
+
+/*
+while (myArray[i][j] == 'S') {
+  const startPoint = myArray[i][j];
+  startPoint.innerHTML = startPoint.textContent;
+  startPoint.style[z-index] = 11;
+}
+
+  while (myArray[10][0] == 'S') {
+    const startPoint = myArray[10][0];
+    startPoint.textContent = startPoint;
+  }
+*/
+// User Character Movement
+
+/*
+const myPerson = document.getElementById("person");
+const computedStyle = getComputedStyle(myPerson);
+const backgroundColor = computedStyle.backgroundColor;
+*/
+
+/*
+var person = null;
+var row = null;
+
+let wallVal = document.querySelector("mazeVal").value;
+*/
+
+
+/*
+const goodCell = document.querySelector("td[data-value='0']");
+  if (left >= 0 && goodCell.dataset.value !== 1) {
+      person.style.left = `${left + 10}px`;
+  }
+}
+
+
+let characterPosition = mazeArray[10][1];
+
+document.addEventListener("keydown", (event) =>  {
+  const key = event.key;
+  let newPosition;
+
+  switch (key) {
+    case "ArrowUp":
+      newPosition = [characterPosition[0] - 1, characterPosition[1]];
+      break;
+    case "ArrowDown":
+      newPosition = [characterPosition[0] + 1, characterPosition[1]];
+      break;
+    case "ArrowLeft":
+      newPosition = [characterPosition[0], characterPosition[1] - 1];
+      break;
+    case "ArrowRight":
+      newPosition = [characterPosition[0], characterPosition[1] + 1];
+      break;
+    default:
+      return;
+  }
+//});
+
+if (
+  newPosition[0] < 0 ||
+  newPosition[0] >= mazeArray[0].length ||
+  newPosition[1] < 0 ||
+  newPosition[1] >= mazeArray[0][0].cells.length
+) {
+  return;
+}
+/*
+const newCell = mazeArray.rows[newPosition[0]].cells[newPosition[1]];
+if (newCell.dataset.value === "1") {
+  return;
+}
+
+const characterCell = mazeArray.rows[characterPosition[0]].cells[characterPosition[1]];
+characterCell.textContent = " ";
+newCell.innerHTML = '<i id="person" class="fa-solid fa-person-running fa-xl"></i>';
+characterPosition = newPosition;
+});
+*/
+
 /*
 
 let table = document.getElementById("myTable");
