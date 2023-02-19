@@ -36,11 +36,31 @@ for (let i = 0; i < mazeArray.length; i++) {
       cell.innerHTML = "Finish";
     }
     if (mazeArray[i][j] == 'SC') {
-      cell.innerHTML = '<i id="person" class="fa-solid fa-person-running fa-2xl"></i>';
+      cell.innerHTML = '<i id="runningPerson" class="fa-solid fa-person-running fa-2xl"></i>';
     }
   }
   table.appendChild(row);
 }
+
+
+let pressedKeysArr = [];
+let lastKey;
+
+function pressedKeys(e) {
+  if (e.keyCode == "ArrowLeft" || e.keyCode == "ArrowRight") {
+    pressedKeysArr.push(e.key);
+    lastKey = pressedKeysArr[pressedKeysArr.length - 1];
+  }
+}
+
+/*
+$('table').on('keydown', function(e) {
+  pressedKeys.push(e.key);
+  lastKey = pressedKeys[pressedKeys.length - 2]
+
+  $('#output').html(lastKey);
+});
+*/
 
 let currentRow = 10;
 let currentCol = 1;
@@ -54,6 +74,9 @@ function moveSC(e) {
         mazeArray[currentRow][currentCol] = 'SC';
 
         moveDomIcon(currentRow, currentCol);
+        //Runner faces up on up arrow key press
+        $runner = document.getElementById('runningPerson');
+        $runner.style.transform = 'rotate(-45deg)';
       } if (mazeArray[currentRow][currentCol + 1] == 'F') {
         window.alert("You've finished the maze!");
       } if (mazeArray[currentRow][currentCol + 1] == 'S') {
@@ -67,6 +90,9 @@ function moveSC(e) {
         mazeArray[currentRow][currentCol] = 'SC';
 
         moveDomIcon(currentRow, currentCol);
+        //Runner faces down on down arrow key press
+        $runner = document.getElementById('runningPerson');
+        $runner.style.transform = 'rotate(45deg)';
       } if (mazeArray[currentRow][currentCol - 1] == 'F') {
         window.alert("You've finished the maze!");
       } if (mazeArray[currentRow][currentCol - 1] == 'S') {
@@ -80,6 +106,9 @@ function moveSC(e) {
         mazeArray[currentRow][currentCol] = 'SC';
 
         moveDomIcon(currentRow, currentCol);
+        //Runner faces left on left arrow key press
+        $runner = document.getElementById('runningPerson');
+        $runner.style.transform = 'scaleX(-1)';
       } if (mazeArray[currentRow][currentCol - 1] == 'F') {
         window.alert("You've finished the maze!");
       } if (mazeArray[currentRow][currentCol - 1] == 'S') {
@@ -93,6 +122,9 @@ function moveSC(e) {
         mazeArray[currentRow][currentCol] = 'SC';
 
         moveDomIcon(currentRow, currentCol);
+        //Runner faces right on right arrow key press
+        $runner = document.getElementById('runningPerson');
+        $runner.style.transform = 'scaleX(1)';
       } if (mazeArray[currentRow][currentCol + 1] == 'F') {
         window.alert("You've finished the maze!");
       } if (mazeArray[currentRow][currentCol + 1] == 'S') {
@@ -107,19 +139,7 @@ function moveSC(e) {
 function moveDomIcon(arrIndex, arrSubIndex) {
   // Current location of our runner
   document.querySelector('td[data-value=SC]').setAttribute('data-value', 0);
-  $runner = document.getElementById('person');
-  $runner.remove();
-
-  // New location of our runner
-  $domRow = document.querySelectorAll('tr')[arrIndex].children[arrSubIndex];
-  $domRow.setAttribute('data-value', 'SC');
-  $domRow.innerHTML = $runner.outerHTML;
-}
-
-function moveDomIcon(arrIndex, arrSubIndex) {
-  // Current location of our runner
-  document.querySelector('td[data-value=SC]').setAttribute('data-value', 0);
-  $runner = document.getElementById('person');
+  $runner = document.getElementById('runningPerson');
   $runner.remove();
 
   // New location of our runner
